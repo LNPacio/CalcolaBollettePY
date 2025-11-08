@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 import funzioniCalendario
 import funcioniCalcoli
 import interfacciaGrafica
+import funzioniPdf
 
 if __name__ == "__main__":
 
@@ -10,25 +11,19 @@ if __name__ == "__main__":
     totBolletta = float(imp.replace(',', '.'))
     commissione = float(comm.replace(',', '.'))
 
+    url_calendario = None;
+    with open('calendar_url.txt', 'r') as f:
+        url_calendario = f.read().strip()
 
-    url_calendario = "" #inserire url qui
     ical_file = "mio_calendario.ics"
     funzioniCalendario.scarica_calendario_da_url(url_calendario, ical_file)
-    # dateStart = datetime(2023, 12, 7).date()
-    # dateEnd = datetime(2024, 2, 6).date()
-    # arrayCoinquilini = ['Luca', 'Giacomo', 'Enrico']
-    # totBolletta = 74.04
-    # commissione = 1.30
+
     eventi = funzioniCalendario.eventi_in_periodo(ical_file, dateStart, dateEnd)
-    # print(f"EVENTI TOTALI:")
-    # for evento in eventi:
-    #     print(f"Titolo: {evento[4]}, InizoEvento: {evento[0]},FineEvento: {evento[1]}, InizioInteresse: {evento[2]}, FineInteresse: {evento[3]}, GiorniCompresiInteresse: {evento[5]},")
 
     numeroGiorniBolletta = funzioniCalendario.numero_giorni_compresi(dateStart, dateEnd)
-    numeroGiorniBolletta += 1 ###calcolo differenza giorni eg.(25/01/2024 - 24/01/2024 + 1 gg e non 2 gg)
-    # print(f"Numero giorni bolletta: {numeroGiorniBolletta}\n")
+    numeroGiorniBolletta += 1
 
-    # print(f"EVENTI SMISTATI:")
+    
     oggettoEventiSmistati = funzioniCalendario.smistaEventi(eventi, arrayCoinquilini)
     # for coinq in oggettoEventiSmistati:
     #     print(f"{coinq}:{oggettoEventiSmistati[coinq]}")
@@ -47,6 +42,10 @@ if __name__ == "__main__":
             for e in oggettoEventiSmistati[coinq]:
                 print(f"        {e[4]}: dal {e[2].strftime('%d/%m/%Y')}  al  {(e[3] - timedelta(days=1)).strftime('%d/%m/%Y')}  GG: {e[5]}")
             print(f"\n")
+
+        funzioniPdf.crea_ricevuta_pdf(dateStart, dateEnd, totBolletta, commissione,
+                          objGionriPerCoinq, objTotaliDovuti,
+                          oggettoEventiSmistati, arrayCoinquilini)
 
     else:
         print(f"SONO PRESENTI EVENTI ERRATI:")
