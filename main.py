@@ -11,7 +11,7 @@ if __name__ == "__main__":
     commissione = float(comm.replace(',', '.'))
 
 
-    url_calendario = ""
+    url_calendario = "" #inserire url qui
     ical_file = "mio_calendario.ics"
     funzioniCalendario.scarica_calendario_da_url(url_calendario, ical_file)
     # dateStart = datetime(2023, 12, 7).date()
@@ -39,7 +39,7 @@ if __name__ == "__main__":
         # for coinq in objGionriPerCoinq:
         #     print(f"{coinq}:{objGionriPerCoinq[coinq]}")
 
-        print(f"\n\nBolletta da   {dateStart.strftime('%d/%m/%Y')}   a    {dateEnd.strftime('%d/%m/%Y')}€")
+        print(f"\n\nBolletta da   {dateStart.strftime('%d/%m/%Y')}   a    {dateEnd.strftime('%d/%m/%Y')}")
         print(f"Tot.Bolletta:   {totBolletta}€   Commissioni:    {commissione}€\nTOTALE DOVUTO DA OGNI INQUILINO: ")
         objTotaliDovuti = funcioniCalcoli.calcolaTotalDovutoePerCoinquilino(totBolletta, objGionriPerCoinq)
         for coinq in objTotaliDovuti:
