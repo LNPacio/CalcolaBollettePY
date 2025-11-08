@@ -184,7 +184,7 @@ HTML_CONTENT = """
 
             <div class="form-group">
                 <label for="coinquilini">Coinquilini 👥</label>
-                <textarea id="coinquilini" name="coinquilini" rows="3" placeholder="Mario, Luca, Sara..." required></textarea>
+                <textarea id="coinquilini" name="coinquilini" rows="3" placeholder="Mario, Giovanni, Chiara..." required></textarea>
                 <div class="info-text">Inserisci i nomi separati da virgola</div>
             </div>
 
