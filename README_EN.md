@@ -54,10 +54,6 @@ To record an absence, create an event in Google Calendar with these characterist
    
 ✅ **The event MUST be set as "All day"**
    - When creating the event, check the **"All day"** box
-   
-✅ **The end date is EXCLUDED**
-   - If Mario is away from March 1st to 5th, the event should be set from March 1st to March 6th
-   - This way it will count 5 days (1, 2, 3, 4, 5)
 
 ### ⚠️ Important
 
@@ -72,7 +68,7 @@ To record an absence, create an event in Google Calendar with these characterist
 **How to create the event:**
 - Event name: `Luke vacation Spain` (or any text containing "Luke")
 - Start date: January 10th
-- End date: January 16th (⚠️ important: one day after the last day of absence)
+- End date: January 15th
 - Check: ✅ All day
 
 ## 🖥️ Usage

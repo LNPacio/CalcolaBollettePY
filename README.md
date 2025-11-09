@@ -54,10 +54,6 @@ Per registrare un'assenza, crea un evento in Google Calendar con queste caratter
    
 ✅ **L'evento DEVE essere impostato come "Tutto il giorno"**
    - Quando crei l'evento, spunta la casella **"Tutto il giorno"**
-   
-✅ **La data di fine è ESCLUSA**
-   - Se Mario è via dal 1 al 5 marzo, l'evento va impostato dal 1 marzo al 6 marzo
-   - In questo modo conterà 5 giorni (1, 2, 3, 4, 5)
 
 ### ⚠️ Importante
 
@@ -72,7 +68,7 @@ Per registrare un'assenza, crea un evento in Google Calendar con queste caratter
 **Come creare l'evento:**
 - Nome evento: `Luca vacanza Spagna` (o qualsiasi testo contenente "Luca")
 - Data inizio: 10 gennaio
-- Data fine: 16 gennaio (⚠️ importante: un giorno dopo l'ultimo giorno di assenza)
+- Data fine: 15 gennaio
 - Spunta: ✅ Tutto il giorno
 
 ## 🖥️ Utilizzo
