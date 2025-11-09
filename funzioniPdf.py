@@ -31,7 +31,7 @@ def crea_ricevuta_pdf(dateStart, dateEnd, totBolletta, commissione, objGionriPer
     )
 
     # Titolo
-    story.append(Paragraph("📊 Ricevuta Bolletta Coinquilini", title_style))
+    story.append(Paragraph("Riepilogo Divisione Bolletta", title_style))
     story.append(Spacer(1, 0.5 * cm))
 
     # Periodo
@@ -40,7 +40,7 @@ def crea_ricevuta_pdf(dateStart, dateEnd, totBolletta, commissione, objGionriPer
     story.append(Spacer(1, 0.3 * cm))
 
     # Totali
-    totale_text = f"<b>Totale Bolletta:</b> €{totBolletta} | <b>Commissioni:</b> €{commissione}"
+    totale_text = f"<b>Totale Bolletta:</b> {totBolletta}€ | <b>Commissioni:</b> {commissione}€"
     story.append(Paragraph(totale_text, styles['Normal']))
     story.append(Spacer(1, 0.5 * cm))
 
@@ -60,13 +60,13 @@ def crea_ricevuta_pdf(dateStart, dateEnd, totBolletta, commissione, objGionriPer
         data.append([
             coinq,
             str(giorni),
-            f"€{quota_base}",
-            f"€{commissione_per_persona}",
-            f"€{totale}"
+            f"{round(quota_base,4)}€",
+            f"{commissione_per_persona}€",
+            f"{totale}€"
         ])
 
     # Crea tabella
-    t = Table(data, colWidths=[4 * cm, 3 * cm, 3 * cm, 3 * cm, 3 * cm])
+    t = Table(data, colWidths=[4 * cm, 3.5 * cm, 3 * cm, 3 * cm, 3 * cm])
     t.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#667eea')),
         ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
